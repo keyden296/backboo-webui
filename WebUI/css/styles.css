@@ -1,0 +1,131 @@
+/*
+Estilos sitio web Replica
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    margin: 15px 50px;
+}
+
+img[alt="Logo"] {
+    width: 150px;
+}
+
+p{
+    font-size: 1.5em;
+}
+
+button, input[type="email"] {
+    border-radius: 20px;
+}
+
+button {
+    background-color: #f94c4a;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    font-weight: 700;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+header {
+    display: flex;
+    /* align-items: baseline; */
+    /* border: 1px solid green; */
+}
+
+nav {
+    flex: 1;
+    /* border: 1px solid blue; */
+    margin-right: 25px;
+}
+
+nav ul {
+    /* border: 1px solid red; */
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    margin-top: 5px;
+    float: right;
+}
+
+nav ul li {
+    list-style: none;
+    float: left;
+    margin: 5px 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #888;
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+nav ul li a:hover {
+    color: #f94c4a;
+    cursor: pointer;
+}
+
+.box-content {
+    margin-top: 40px;
+    padding-top: 100px;
+    margin-right: 150px;
+    background-image: url('../images/img1.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+    border: 2px solid #f94c4a;
+}
+
+h1, h3 {
+    font-size: 4em;
+    margin: 0;
+}
+
+h1 {
+    font-weight: 900;
+}
+
+h3 {
+    font-weight: 300;
+}
+
+.box-middle {
+    width: 50%;
+    text-align: justify;
+}
+
+input[type="email"] {
+    border: 1px solid #666;
+    padding: 10px 20px;
+    outline: none;
+}
+
+form {
+    margin: 50px 0 35px;
+}
+
+.store-buttons {
+    display: flex;
+    margin: 10px 0;
+}
+
+.store-buttons div {
+    margin-right: 12px;
+}
+
+.store-buttons div img {
+    width: 150px;
+}
