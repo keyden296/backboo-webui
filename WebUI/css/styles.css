@@ -12,11 +12,7 @@ body {
 }
 
 .container {
-    margin: 15px 50px;
-}
-
-img[alt="Logo"] {
-    width: 150px;
+    margin: 15px 150px;
 }
 
 p{
@@ -33,6 +29,7 @@ button {
     padding: 10px 20px;
     border: none;
     font-weight: 700;
+    outline: none;
 }
 
 button:hover {
@@ -43,6 +40,11 @@ header {
     display: flex;
     /* align-items: baseline; */
     /* border: 1px solid green; */
+}
+
+img[alt="Logo"] {
+    width: 150px;
+    margin-top: 5px;
 }
 
 nav {
@@ -79,14 +81,14 @@ nav ul li a:hover {
 }
 
 .box-content {
-    margin-top: 40px;
+    margin-top: 50px;
     padding-top: 100px;
-    margin-right: 150px;
+    /* margin-right: 150px; */
     background-image: url('../images/img1.png');
     background-repeat: no-repeat;
     background-position: right;
     background-size: contain;
-    border: 2px solid #f94c4a;
+    /* border: 2px solid #f94c4a; */
 }
 
 h1, h3 {
@@ -128,4 +130,47 @@ form {
 
 .store-buttons div img {
     width: 150px;
+}
+
+.father-box-content2 {
+    /* border: 1px solid darkmagenta; */
+    margin-top: 100px;
+    background-image: url(../images/img2.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: contain;
+}
+
+.box-content2 {
+    width: 720px;
+    height: 520px;
+    display: flex;
+    flex-wrap: wrap;
+    /* border: 1px solid dodgerblue; */
+    margin: 50px 0 50px 480px;
+}
+
+.box-content2 div {
+    width: 350px;
+    height: 260px;
+    text-justify: justify;
+    padding-right: 8px;
+    /* border: 1px solid #f94c4a; */
+}
+
+.box-content2 div img {
+    width: 90px;
+    height: 90px;
+}
+
+.box-content2 div h5 {
+    font-weight: 700;
+    font-size: 1.6em;
+    margin: 15px 0;
+}
+
+.box-content2 div p {
+    font-weight: 300;
+    font-size: 1.2em;
+    margin: 0;
 }
