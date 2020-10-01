@@ -6,11 +6,74 @@
   font-family: 'Lato', sans-serif;
 }
 
+a, a:hover {
+  text-decoration: none;
+}
+
+.btn {
+  width: 100%;
+  margin: 5px 0;
+  padding: 8px 0;
+  border: 1px solid #ccc;
+  font-weight: 700;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 12px;
+  outline: none;
+  opacity: .8;
+}
+
+.btn:disabled {
+  background-color: #ccc;
+  border: 1px solid #666;
+  cursor: no-drop;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+.btn.primary {
+  /* background-color: #00a699; */
+  background-color: rgb(0, 166, 153);
+  background-color: linear-gradient(90deg, rgba(0, 166, 153, 1) 0% rgba(0, 184, 170, 1) 100%);
+  color: #fff;
+  border: 1px solid #00a699;
+}
+
 .page {
-  margin: 0 20px;
+  margin: 0 20px 60px 20px;
 }
 
 /* topbar */
+
+.form div {
+  border: 1px solid #ccc;
+  background-color: #f2f2f2;
+  margin: 10px 0;
+  padding: 5px 10px; 
+  border-radius: 12px;
+}
+
+.form div label {
+  color: #666;
+}
+
+.form div label span {
+  font-size: 1.5em;
+  color: #FF5A5F;
+}
+
+.form div input, .form div textarea {
+  border: none;
+  width: 100%;
+  font-family: 'Lato';
+  resize: none;
+  background-color: transparent;
+  outline: none;
+  font-size: 1.1em;
+  margin-top: 5px;
+}
 
 .topbar {
   background-color: #FF5A5F;
@@ -62,7 +125,7 @@
 
 .navigation ul li a ion-icon {
   color: #767676; 
-  font-size: 2em;
+  font-size: 1.8em;
 }
 
 .navigation ul li:hover a ion-icon {
@@ -89,11 +152,7 @@
   border-radius: 50px;
 }
 
-.searchContainer input:hover {
-  box-shadow: 5px 6px 3px #B3B3B3;
-}
-
-.searchContainer input:focus {
+.searchContainer input:hover, .searchContainer input:focus {
   box-shadow: 5px 6px 3px #B3B3B3;
 }
 
@@ -116,10 +175,6 @@
 .rankingContainer {
   display: flex;
   overflow-x: auto;
-}
-
-.rankingContainer a {
-  text-decoration: none;
 }
 
 .cardContainer {
@@ -159,23 +214,36 @@
 .cardAdventure {
   display: flex;
   height: 300px;
-  width: 730px;
-  border: 1px solid #ccc;
+  width: 580px;
+  border: 1px solid rgb(54, 54, 54);
   margin-bottom: 16px;
   border-radius: 12px;
   overflow: hidden;
+  box-shadow: 4px 4px 5px #B3B3B3;
+  transition: .01s ease all;
 }
 
-.cardAdventure article {
-  height: 100%;
-  width: 40%;
-  padding: 90px 20px;
+.cardAdventure:hover {
+  box-shadow: 8px 8px 5px #B3B3B3;
 }
 
 .cardAdventure img {
   height: 100%;
   width: 60%;
   background-size: cover;
+}
+
+.cardAdventure article {
+  height: 100%;
+  width: 40%;
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+  /*justify-content = ajustar de acuerdo al flex-direction*/
+  justify-content: center;
+  line-height: 20pt;
+  text-justify: justify;
+  color: #555;
 }
 
 /* Experiences */
@@ -188,6 +256,7 @@
   border-radius: 12px;
   overflow: hidden;
   margin-top: 15px;
+  
 }
 
 .cardDetail img {
@@ -196,6 +265,8 @@
 
 .cardDetail div {
   padding: 12px 10px;
+  line-height: 15pt;
+  text-align: justify;
 }
 
 .cardDetail h3 {
@@ -234,8 +305,46 @@
   position: fixed;
   display: none;
   width: 280px;
-  background-color: lightblue;
+  background-color: #2b2d36;
   height: 100%;
+}
+
+.navigationWeb div {
+  text-align: center;
+  margin: 15px 0;
+}
+
+.navigationWeb div img {
+  width: 220px;
+}
+
+.navigationWeb ul{
+  margin-top: 50px;
+}
+
+.navigationWeb ul li {
+  color: #fff;
+  font-weight: 300;
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #666;
+  padding: 10px 15px;
+  display: flex;
+  opacity: .80;
+}
+
+.navigationWeb ul li:hover {
+  opacity: 1;
+}
+
+.navigationWeb ul li span {
+  flex: 1;
+  margin: 0 10px;
+  font-size: 1em;
+}
+
+.navigationWeb ul li ion-icon {
+  font-size: 1.1em;
+  color: #f2f2f2;
 }
 
 .mainPage {
