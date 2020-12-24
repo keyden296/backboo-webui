@@ -1,18 +1,18 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { Button } from '../../components/Button'
 import { Page } from '../Page'
 import { validateEmail } from './../../utils/validateEmail'
 import { UserContext } from '../../context/UserContext'
+import { requestHttp } from '../../services/HttpServer'
 
 export const Login = () => {
-
-    const history = useHistory()
-
+    
     const [email, setEmail] = useState(''),
           [clave, setClave] = useState(''),
           [isValidForm, setIsValidForm] = useState(false),
-          [user, setUser] = useContext(UserContext)
+          {user, setUser} = useContext(UserContext),
+          history = useHistory()
                     
     useEffect(() => {
         setIsValidForm(validateEmail(email) && clave !== '')
@@ -20,23 +20,26 @@ export const Login = () => {
 
     const loginFormHandler = (e) => {
         e.preventDefault()
-        // const form = {
-        //     email,
-        //     clave
-        // }
-        validateUser()
-        // console.log('formulario a enviar', form)
+        const form = {
+            email,
+            password: clave
+        }
+        validateUser(form)
     }
 
-    const validateUser = () => {
-        const emailUser = email,
-              passUser = clave
-              //pepito@gmail.com y 123456, redirigir a Home
-        if (email == 'pepito@gmail.com' && clave === '123456') {
-            user.isAuthenticated = true
-            history.push(`/booking/${user.identification}`)
-        } else {
-            alert('Error')
+    const validateUser = async (form) => {
+        try {
+
+            // const idExperience = req.params.id
+
+            const response = await requestHttp('post', 'users/login', form)
+            setUser({ isAuthenticated: true, identification: response.idUser})
+            localStorage.setItem('token', response.token, response.idUser)
+            setTimeout(() => {
+                history.push(`/booking/`)
+            }, 2000)            
+        } catch (error) {
+            alert('Usuario no válido')
         }
     }
 
@@ -52,7 +55,9 @@ export const Login = () => {
                     <label>Clave <span>*</span></label>
                     <input type="password" value={clave} onChange={e => setClave(e.target.value)} />
                 </div>
-                <Button label="Iniciar sesión" type="submit" disabled={!isValidForm}/>
+                <Button label="Iniciar sesión" type="submit" disabled={!isValidForm}/><br/>
+                ¿Aún no tienes cuenta?
+                <Link to='/register'>Registrate</Link>
             </form>
         </Page>
     )

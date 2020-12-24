@@ -90,6 +90,11 @@ a, a:hover {
 /* topbar */
 
 /* Navigatiion */
+.navigation ul a {
+  flex: 1;
+  text-decoration: none;
+  color: #FF5A5F;
+}
 
 .navigation ul {
   display: flex;
@@ -99,7 +104,6 @@ a, a:hover {
 
 .navigation ul li {
   list-style: none;
-  flex: 1;
   padding: 12px 0;
   text-align: center;
   cursor: pointer;

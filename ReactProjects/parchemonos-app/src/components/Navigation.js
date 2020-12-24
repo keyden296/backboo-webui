@@ -1,12 +1,21 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export const Navigation = () => (
     <nav className="navigation">
         <ul>
-            <li className="active"><ion-icon name="home"></ion-icon></li>
-            <li><ion-icon name="map"></ion-icon></li>
-            <li><ion-icon name="chatbubble-ellipses"></ion-icon></li>
-            <li><ion-icon name="person-circle"></ion-icon></li>
+            <Link to={'/'}>
+                <li className="active"><ion-icon name="home"></ion-icon></li>
+            </Link>
+            <Link to={'/'}>
+                <li><ion-icon name="map"></ion-icon></li>
+            </Link>
+            <Link to={'/'}>
+                <li><ion-icon name="chatbubble-ellipses"></ion-icon></li>
+            </Link>
+            <Link to={'/login'}>
+                <li><ion-icon name="person-circle"></ion-icon></li>
+            </Link>
         </ul>
     </nav>
 )

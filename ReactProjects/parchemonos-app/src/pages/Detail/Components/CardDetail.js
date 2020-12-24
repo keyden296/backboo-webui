@@ -4,7 +4,7 @@ import {Score} from '../../../components/Score'
 export const CardDetail  = (props) => {
     return (
         <article className="cardDetail">
-            <img src={props.image} alt="img"/>
+            <img src={props.image} alt="logo experience"/>
             <div>
                 <p>{props.description}</p>
                 <h3>COP <small>{props.price}</small></h3>

@@ -18,7 +18,7 @@ export const Score = ({ stars = 0, users = 0, size = '0' }) => {
         <section className="score">
         <div>
             {
-                [1,2,3,4,5].map(star => star <= stars ? <StarFilled size={size} /> : <StarEmpty size={size} />)
+                [1,2,3,4,5].map((star, key) => star <= stars ? <StarFilled key={key} size={size} /> : <StarEmpty key={key} size={size} />)
             }
         </div>
         <p>{users} Usuarios </p>

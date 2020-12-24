@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import { Button } from '../../components/Button'
 import { Page } from '../Page'
+import { requestHttp } from '../../services/HttpServer'
+import { UserContext } from '../../context/UserContext'
 
 export const Booking = () => {
 
@@ -9,20 +11,39 @@ export const Booking = () => {
 
     const [bookingDate, setBookingDate] = useState(''),
           [comments, setComments] = useState(''),
-          [isValidForm, setIsValidForm] = useState(false)
+          [isValidForm, setIsValidForm] = useState(false),
+        //   {user, setUser} = useContext(UserContext),
+          history = useHistory()
     
     useEffect(() => {
-        setIsValidForm(new Date(bookingDate) > new Date())
-    }, [bookingDate])
+        setIsValidForm(new Date(bookingDate) > new Date() && comments !== '')
+    }, [bookingDate, comments])
 
     const bookingFormHandler = (e) => {
         e.preventDefault()
         const form = {
-            idExperience: id,
-            bookingDate,
-            comments
+            //modelo     datos del frontEnd
+            // idUser: user.identification,
+            bookingDate: bookingDate,
+            comment: comments
         }
-        console.log('formulario a enviar', form)
+        createBooking(form)
+    }
+
+    const createBooking = async (data) => {
+        try {
+            const response = await requestHttp('post', `/booking/${id}`, data)
+            // const idBooking = response.Split(" ")
+            // console.log(idBooking); 
+            // console.log("Reserva realizada", response.booking._id);
+            // alert("Reserva realizada ", response.booking._id)
+            const idBooking = response.booking._id
+            console.log("Reserva realizada", idBooking);
+            alert("Reserva realizada ", idBooking);
+            history.push(`/rate/${idBooking}`)
+        } catch (Error) {
+            return null 
+        }
     }
 
     return (
